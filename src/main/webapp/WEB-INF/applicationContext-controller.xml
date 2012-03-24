@@ -1,0 +1,141 @@
+<!-- Copyright (C) 2010 Miura Agustín Rozanect Jose Licensed under the Apache License, 
+    Version 2.0 (the "License"); you may not use this file except in compliance with 
+    the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+    Unless required by applicable law or agreed to in writing, software distributed under 
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+    OF ANY KIND, either express or implied. See the License for the specific language 
+    governing permissions and limitations under the License. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:ctx="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                        http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+    <bean id="menuController" class="depoi.austral.controller.MenuController">
+        <property name="methodNameResolver">
+            <ref local="menuActions" />
+        </property>
+    </bean>
+
+    <bean id="menuActions"
+        class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+        <property name="mappings">
+            <props>
+                <prop key="/createMessage.htm">createMessage</prop>
+                <prop key="/ranking/see.htm">seeRanking</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="urlHandler"
+        class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <map>
+                <entry key="/hello.htm" value="helloController" />
+                <entry key="/bet/choose.htm" value="betController" />
+                <entry key="/bet/show.htm" value="betController" />
+                <entry key="/bet/do.htm" value="betController" />
+                <entry key="/ranking/see.htm" value="rankingController" />
+
+                <entry key="/betData/see.htm" value="betUnitController" />
+                <entry key="/betData/create.htm" value="betUnitController" />
+                <entry key="/betData/modify.htm" value="betUnitController" />
+                <entry key="/betData/forTournament.htm" value="betUnitController" />
+                <entry key="/betData/seeAllUsers.htm" value="betUnitController" />
+                <entry key="/betData/addRandomUser.htm" value="betUnitController" />
+
+                <entry key="/tournament/see.htm" value="tournamentController" />
+                <entry key="/tournament/show.htm" value="tournamentController" />
+                <entry key="/tournament/modify.htm" value="tournamentController" />
+
+
+            </map>
+        </property>
+    </bean>
+
+    <bean id="helloController" class="depoi.austral.controller.HelloController">
+        <property name="userService" ref="userService" />
+        <property name="userDao" ref="userJdoDao" />
+    </bean>
+
+    <bean id="rankingController" class="depoi.austral.controller.RankingController">
+        <property name="methodNameResolver">
+            <ref local="menuActions" />
+        </property>
+        <property name="rankingService" ref="rankingService" />
+        <property name="tournamentService" ref="tournamentService" />
+
+    </bean>
+
+    <bean id="betController" class="depoi.austral.controller.BetController">
+        <property name="methodNameResolver">
+            <ref local="betActions" />
+        </property>
+        <property name="betService" ref="betService" />
+        <property name="tournamentService" ref="tournamentService" />
+        <property name="randomService" ref="randomService" />
+        <property name="userService" ref="userService" />
+        <property name="betUnitDataDao" ref="betUnitDataDao" />
+    </bean>
+
+    <bean id="betActions"
+        class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+        <property name="mappings">
+            <props>
+                <prop key="/bet/choose.htm">goToChooseTournament</prop>
+                <prop key="/bet/show.htm">showBets</prop>
+                <prop key="/bet/do.htm">doBet</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="betUnitController" class="depoi.austral.controller.BetUnitDataController">
+        <property name="methodNameResolver">
+            <ref local="betDataActions" />
+        </property>
+        <property name="betUnitDao" ref="betUnitDataDao" />
+        <property name="userDao" ref="userJdoDao" />
+
+    </bean>
+
+    <bean id="tournamentController" class="depoi.austral.controller.TournamentController">
+        <property name="methodNameResolver">
+            <ref local="tournamentActions" />
+        </property>
+        <property name="tournamentService" ref="tournamentService" />
+        <property name="randomService" ref="randomService" />
+        <property name="userService" ref="userService" />
+    </bean>
+
+    <bean id="tournamentActions"
+        class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+        <property name="mappings">
+            <props>
+                <prop key="/tournament/see.htm">seeAllTournament</prop>
+                <prop key="/tournament/show.htm">showMatches</prop>
+                <prop key="/tournament/modify.htm">modifyTournament</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="betDataActions"
+        class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+        <property name="mappings">
+            <props>
+                <prop key="/betData/see.htm">seeAll</prop>
+                <prop key="/betData/create.htm">createRandom</prop>
+                <prop key="/betData/modify.htm">modify</prop>
+                <prop key="/betData/forTournament.htm">forTournament</prop>
+                <prop key="/betData/seeAllUsers.htm">seeAllUsers</prop>
+                <prop key="/betData/addRandomUser.htm">addRandomUser</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans> 

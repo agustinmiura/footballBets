@@ -1,0 +1,146 @@
+/*
+ Copyright (C) 2010 Miura Agustín
+                    Rozanect Jose  
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+@CHARSET "UTF-8";
+
+/***********************/
+
+/*** style for forms *********************/
+.label{
+float:left;
+width:200px;
+text-align:right;
+clear:left;
+
+
+}
+
+/***style for buttons in forms*********/
+.button{
+margin-left:150px;
+
+font-family: "Century Gothic", "Gill Sans", Arial, sans-serif;
+
+}
+button{
+font: 11px Verdana, Geneva, Arial, Helvetica, sans-serif;    
+ background-color: #D7E5F2;    
+ color: #102132;    
+
+}
+/*separate the field in the form*/
+.separateTopBottom{
+	margin-bottom:15px;
+	margin-top:15px;
+	
+	
+}
+
+
+label{
+ font: 14px Verdana, Geneva, Arial, Helvetica, sans-serif;    
+ /*background-color: #D7E5F2;*/    
+ color:black;    
+ /*border: 1px solid #284279;*/  
+}
+#formImage{
+	margin-bottom:30px;
+	margin-top:30px;
+	
+}
+/* styling inputs*/
+input{
+ background-color: #D7E5F2; 
+color:black;
+}
+select{
+ background-color: #D7E5F2; 
+
+}
+textarea{
+ background-color: #D7E5F2; 
+	
+}
+
+fieldset{
+ background-color:rgb(156, 156, 156);
+ color:blue;
+}
+
+legend{
+font-size:20px;
+color:black;
+}
+
+#formCivilState{
+
+}
+
+
+/*					*/
+
+/*less important format*/
+h6{
+font-family:Arial,Helvetica,"Times New Roman";
+color:#FF0000 /*black color */
+font-size:60px;
+
+}
+
+
+#footer{
+border-color:white;
+margin-left:40%;
+
+}
+/*here forms for the forms in the matches dude*/
+.col1{
+float:left;
+width: 30%;	
+}
+
+.col2{
+float:right;
+width: 30%;	
+}
+
+.myLabel{
+display: block;	
+	
+}
+
+.matchHolder{
+	height:80px;
+	-moz-border-radius:5px;
+    background-color: rgb(156, 156, 156);
+	margin-bottom:10px;
+	padding: 5px;
+    border:1px solid gray;
+	
+}
+
+#formContainer{
+	width:30%;
+	min-height:125px;
+	text-align:center;
+	position:relative;
+	left:150px;
+}
+
+.myButton{
+	margin-top:10px;
+	margin-bottom:10px;	
+}

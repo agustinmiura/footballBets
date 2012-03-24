@@ -1,0 +1,3 @@
+jquery dev version 1-4-2    js.js
+jquery plug in version ver 2.43  jquery.form.js
+jquery xlst 	ver Version: 0.70;

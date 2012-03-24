@@ -1,0 +1,75 @@
+<!--  
+
+ Copyright (C) 2010 Miura Agustín
+                    Rozanect Jose  
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="../js/jquery/jquery.form.js"></script>
+
+<script type="text/javascript">
+	// prepare the form when the DOM is ready
+	function doAjax(formID, url, destinationElementID) {
+		var queryString = $("#" + formID).formSerialize();
+		$
+				.ajax({
+					url : url,
+					type : 'POST',
+					data : queryString,
+					error : function(responseHTML) {
+						document.getElementById(destinationElementID).innerHTML = responseHTML;
+					},
+					success : function(responseHTML) {
+						document.getElementById(destinationElementID).innerHTML = responseHTML;
+					}
+				})
+	}
+</script>
+</head>
+<body>
+    <script type="text/javascript">
+					function bringBetHTML(url, responseHTMLContainerDivID) {
+						$.get(url, function(data) {
+							$('#' + responseHTMLContainerDivID).html(data);
+						});
+					}
+
+					function append(newHTML, father) {
+						father.innerHTML = newHTML;
+					}
+
+					function prueba() {
+						document.getElementById('ID').innerHTML = "<div>appendeo</div>";
+					}
+				</script>
+    <div class="tournament">
+        <ul>
+            <li>
+                <form id="ID">
+                    Mundial <label><input type="hidden"
+                        name="tournament" value="ID"></label> <input
+                        type="button" value="Apostar"
+                        onClick="doAjax('ID','betGrid.html','tID')" />
+                </form>
+                <div>
+                    <div id="tID"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
