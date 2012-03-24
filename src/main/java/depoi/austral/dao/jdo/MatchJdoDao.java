@@ -91,21 +91,6 @@ public class MatchJdoDao implements MatchDAO{
 	
 	public Match convert(MatchData data){
 		Match match = new Match();
-		System.out.println(""+data);
-//		try {
-//			
-//			match.setDate(DateUtils.getDate(data.getTimestamp()));
-//			match.setGuest(teamService.getTeam(""+data.getGuestId()));			
-//			match.setLocal(teamService.getTeam(""+data.getLocalId()));
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}	
-//		match.setGuestScore(data.getGuestScore());
-//		match.setId(data.getId());
-//		match.setLocalScore(data.getLocalScore());
-//		match.setTournamentId(data.getTournamentId());
 		return match;
 	}
 

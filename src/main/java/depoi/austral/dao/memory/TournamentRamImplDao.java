@@ -41,29 +41,6 @@ public class TournamentRamImplDao implements TournamentDAO {
 	private static final int[] tournamentId = new int[] { 10, 20, 30 };
 	private Comparator<Tournament> byIdComp;
 
-	public static void main(String[] args) {
-		try {
-			TournamentDAO tDao = new TournamentRamImplDao();
-			// Tournament tournament=tDao.byId(new Long(77));
-
-			// System.out.println(tournament);
-			int[] testArr = new int[] { 10, 20, 30, -444, 11111, -44, 44 };
-
-			for (int i = 0; i < testArr.length; i++) {
-
-				Long id = new Long(testArr[i]);
-				Tournament t = tDao.byId(id);
-				System.out.println(tDao.exist(id));
-
-			}
-
-			int a = 10;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	public TournamentRamImplDao() {
 		try {
 			subConstructor();

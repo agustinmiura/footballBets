@@ -47,17 +47,6 @@ public class TeamRamImplDao implements TeamDAO {
 
 	private Map<String, Team> map;
 
-	public static void main(String[] args) {
-
-		try {
-			TeamDAO teamDao = new TeamRamImplDao();
-			Team team = teamDao.loadByName("Mexico");
-			int a = 33;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	public TeamRamImplDao() {
 		randomService = new RandomService();
 		map = new HashMap<String, Team>();

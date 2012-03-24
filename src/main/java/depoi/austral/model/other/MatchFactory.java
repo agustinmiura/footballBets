@@ -29,16 +29,6 @@ import depoi.austral.system.DateUtils;
 public class MatchFactory {
 	private static final TeamDAO teamDao = new TeamRamImplDao();
 
-	public static void main(String[] args) {
-		try {
-			List<Match> matchList = MatchFactory.getMini();
-			int state = 99;
-			state = 99;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	public static List<Match> getMini() throws Exception {
 		RandomService randomService = new RandomService();
 

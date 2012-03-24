@@ -60,9 +60,7 @@ public class BetUnitDataController extends MultiActionController{
 		 List<User> betUnitDataList=new ArrayList<User>();
 		 ModelAndView modelAndView=new ModelAndView(viewToRedirect,"userList",betUnitDataList);
 	   try {
-			System.out.println("see all");
 			List<User> tempList=userDao.getAll();
-			System.out.println("the qty is ..."+tempList.size());
 			modelAndView.addObject("parameter",tempList);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,9 +79,7 @@ public class BetUnitDataController extends MultiActionController{
 		 List<BetUnitData> betUnitDataList=new ArrayList<BetUnitData>();
 		 ModelAndView modelAndView=new ModelAndView(viewToRedirect,"parameter",betUnitDataList);
 	   try {
-			System.out.println("see all");
 			List<BetUnitData> tempList=betUnitDao.listAll();
-			System.out.println("the qty is ..."+tempList.size());
 			modelAndView.addObject("parameter",tempList);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -92,7 +88,6 @@ public class BetUnitDataController extends MultiActionController{
 	 }
 	
 	public ModelAndView createRandom(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("create random");
 		try {
 			BetUnitDataFactory betUnitDataFactory=new BetUnitDataFactory();
 			List<BetUnitData> tempList=betUnitDataFactory.createRandom(20);
@@ -143,8 +138,6 @@ public class BetUnitDataController extends MultiActionController{
 	 }
 
 	public ModelAndView forTournament(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("for tournament");
-		
 		String tIdString=request.getParameter("tournamentId");
 		
 		String userMail=request.getParameter("userMail");

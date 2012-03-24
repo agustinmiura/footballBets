@@ -68,9 +68,7 @@ public class BetController extends MultiActionController{
 			
 			if(check){
 				Result result=Result.getResult(resultType);
-				System.out.println("the result choosen is "+result);
 				betUnit=betService.getById(id);
-				System.out.println("en bet controller antes de modficar es "+betUnit);
 				
 				if(allowBettingCondition(betUnit.getMatch().getDate())){
 					betUnit.setResult(result);
@@ -78,22 +76,17 @@ public class BetController extends MultiActionController{
 					betService.modify(id,betUnit);
 					mav=new ModelAndView("private/user/fragments/successBetFragment");
 					mav.addObject("status",result.toString());
-					System.out.println(result);
-					System.out.println("here good");
 					betUnit=betService.getById(id);
-					System.out.println("ahora despues de modificar es "+betUnit);
 				}		
 			}else{
 				mav=new ModelAndView("private/user/fragments/notifyErrorFragment");
 				mav.addObject("status","user cant bet there error ");
-				System.out.println("here bad");
 				
 				}
 			
 		} catch (Exception e) {
 			mav=new ModelAndView("private/user/fragments/notifyErrorFragment");
 			mav.addObject("status",betUnit.getResult().toString());
-			System.out.println("here bad");
 			e.printStackTrace();
 		}finally{			
 			return mav;

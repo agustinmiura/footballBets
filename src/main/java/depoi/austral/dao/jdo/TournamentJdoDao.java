@@ -50,23 +50,6 @@ public class TournamentJdoDao implements TournamentDAO {
 	private Tournament ningunoEditable;
 	private static List<Tournament> tournamentList;
 
-	public static void main(String[] args) {
-		try {
-			TournamentDAO tDao = new TournamentJdoDao();
-
-			int[] arr = new int[] { 10, 20, 30, -44, -11, 1111111 };
-
-			for (int i = 0; i < arr.length; i++) {
-				Long id = new Long(arr[i]);
-				System.out.println(tDao.exist(id));
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
 	private Comparator<Tournament> comparator;
 
 	public TournamentJdoDao() {

@@ -24,19 +24,6 @@ public enum Result {
 
 	private Integer id;
 
-	public static void main(String[] args) {
-
-		String string0 = Result.WIN.toString();
-
-		System.out.println(Result.WIN);
-
-		for (int i = 0; i < 10; i++) {
-
-			System.out.println(Result.getRandom());
-		}
-
-	}
-
 	private Result(Integer id) {
 		this.id = id;
 	}

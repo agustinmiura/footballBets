@@ -54,52 +54,6 @@ public class Match implements Persistable, Comparable<Match> {
 
 	private Long tournamentId;
 
-	public static void main(String[] args) {
-		Match m1 = new Match();
-		m1.setId(new Long(1));
-
-		Match m2 = new Match();
-		m2.setId(new Long(2));
-
-		Match m3 = new Match();
-		m3.setId(new Long(33));
-
-		boolean checkTrue = m1.equals(m3);
-
-		boolean checkFalse = m2.equals(m3);
-
-		List<Match> mList = new ArrayList<Match>();
-		mList.add(m1);
-		mList.add(m2);
-		mList.add(m3);
-
-		int index1 = mList.indexOf(m3);
-
-		int a = 33;
-
-		Set<Match> matchSet = new TreeSet<Match>();
-		/*
-		 * matchSet.add(m1); matchSet.add(m2); matchSet.add(m3);
-		 */
-		Map<Long, Match> matchMap = new TreeMap<Long, Match>();
-
-		matchMap.put(m1.getId(), m1);
-		matchMap.put(m2.getId(), m2);
-		matchMap.put(m3.getId(), m3);
-
-		Set<Long> longId = matchMap.keySet();
-
-		Iterator<Long> aa = longId.iterator();
-
-		while (aa.hasNext()) {
-
-			Long id = aa.next();
-		}
-
-		int state = 22;
-
-	}
-
 	public Match() {
 		localScore = guestScore = localEndPenalties = guestEndPenalties = 0;
 		date = new Date();

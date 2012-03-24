@@ -34,27 +34,6 @@ public class BetFactory {
 
 	public static int[] indexArr = new int[] { -1, 0, 1 };
 
-	public static void main(String[] args) {
-		try {
-			TournamentDAO tournamentDao = new TournamentRamImplDao();
-			Tournament tournament = tournamentDao.byName("2010");
-			User user = new User();
-			user.setMail("pepe@gmail.com");
-			user.setUserId("pepe@gmail.com");
-			List<BetUnit> bList = BetFactory.forUser(user, tournament);
-			for (BetUnit bUnit : bList) {
-				bUnit.setId(new Long(22));
-				System.out.println(bUnit);
-			}
-			int a = 10;
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
 	public static List<BetUnit> forMini(User user, Tournament tournament)
 			throws Exception {
 		List<BetUnit> answer = new ArrayList<BetUnit>();

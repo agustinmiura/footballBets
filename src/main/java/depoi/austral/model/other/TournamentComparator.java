@@ -22,20 +22,6 @@ import depoi.austral.model.*;
 
 public class TournamentComparator implements Comparator<Tournament> {
 
-	public static void main(String[] args) {
-
-		Tournament t0 = new Tournament();
-		t0.setId(new Long(0));
-
-		Tournament t1 = new Tournament();
-		t1.setId(new Long(1));
-
-		Comparator<Tournament> c = new TournamentComparator();
-		int result = c.compare(t0, t1);
-
-		System.out.println(result);
-	}
-
 	@Override
 	public int compare(Tournament o1, Tournament o2) {
 		// TODO Auto-generated method stub

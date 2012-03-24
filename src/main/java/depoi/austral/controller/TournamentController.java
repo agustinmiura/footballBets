@@ -94,7 +94,6 @@ public class TournamentController extends MultiActionController {
 
 	public ModelAndView deleteTournament(HttpServletRequest request,
 			HttpServletResponse response) {
-		System.out.println("here to delete");
 		ModelAndView mav = new ModelAndView("private/user/index");
 		try {
 			String idString=request.getParameter("param");
@@ -115,8 +114,6 @@ public class TournamentController extends MultiActionController {
 	
 	public ModelAndView modifyTournament(HttpServletRequest request,
 			HttpServletResponse response) {
-//		ModelAndView mav = new ModelAndView("private/admin/tournament/modify");
-		System.out.println("Entrando en modify tournament!");
 		ModelAndView mav = new ModelAndView("private/user/fragments/successMatchFragment");
 		try {
 			String idString=request.getParameter("matchId");
@@ -125,13 +122,11 @@ public class TournamentController extends MultiActionController {
 			int guestScore;
 			try{				
 				localScore =Integer.parseInt(request.getParameter("localScore"));
-				System.out.println(""+localScore);
 			}catch(Exception e){
 				localScore = 0;
 			}
 			try{
 				guestScore = Integer.parseInt(request.getParameter("guestScore"));
-				System.out.println(""+guestScore);
 			}catch(Exception e){
 				guestScore = 0;
 			} 
@@ -144,13 +139,11 @@ public class TournamentController extends MultiActionController {
 			tournamentService.modifyTournament(tournament);
 			
 			mav.addObject("status", ""+localScore+" - "+guestScore);
-			System.out.println(""+localScore+" - "+guestScore);
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav = new ModelAndView("private/user/fragments/notifyErrorFragment");
 			mav.addObject("status", "");
 		}finally{
-			System.out.println("Voy a devolver el MAV"+mav.getViewName());
 			return mav;
 		}
 	}
@@ -179,31 +172,9 @@ public class TournamentController extends MultiActionController {
 		}finally{
 			return mav;
 		}		
-			
-//		Map parameter=new HashMap<String,Object>(13);	
-//		ModelAndView mav=new ModelAndView("private/tournament/choose","parameter",parameter);
-//		String logoutUrl=userService.createLogoutURL("/hello.htm");
-//  		parameter.put("logoutUrl",logoutUrl);
-//		List<Tournament> tournamentList = new ArrayList<Tournament>();
-//		mav.addObject("result", "fail creation of the team");
-//		try {
-//			tournamentList = tournamentService.listCurrentTournaments();
-//			List<String> delList=new ArrayList<String>();
-//			List<String> modList=new ArrayList<String>();
-//			
-//			this.prepareLinkList(tournamentList,modList,delList);
-//			 
-//			mav.addObject("tournamentList",tournamentList);		
-//			mav.addObject("delList",delList);
-//			mav.addObject("modList",modList);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return mav;
 	}
 	
 	public ModelAndView showMatches(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("Hasta aca llegamos!");
 		ModelAndView mav=new ModelAndView("private/tournament/matchGrid");
 		String stringId=request.getParameter("id");
 		User user=userService.getCurrentUser();
@@ -219,17 +190,9 @@ public class TournamentController extends MultiActionController {
 			if(check){
 				tournament = tournamentService.getTournament(stringId);
 				matchList=tournament.getAll();
-				
-				System.out.println("Printing matches");
-				for(int j=0;j<matchList.size();j++){
-					System.out.println(matchList.get(j));
-				}
-				System.out.println("End of printing matches");
-				
 			}else{
 				mav.setViewName("private/user/fragments/notifyErrorFragment");
 			}
-				
 			mav.addObject("matchList",matchList);
 			mav.addObject("tournament",tournament);
 		} catch (Exception e) {
@@ -277,31 +240,4 @@ public class TournamentController extends MultiActionController {
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
 	}
-	
-	/*
-	 * public void setTournamentDao(TournamentDAO tournamentDAO) {
-	 * this.tournamentDAO = tournamentDAO; }
-	 * 
-	 * protected void initBinder(HttpServletRequest request,
-	 * ServletRequestDataBinder binder) throws Exception {
-	 * binder.registerCustomEditor(String.class, new
-	 * StringTrimmerEditor(false)); }
-	 * 
-	 * 
-	 * public TournamentController() { setSessionForm(true);//todo que hace?? }
-	 * 
-	 * //todo debe hacer retrieve de los objetosa ser usados...
-	 * 
-	 * protected Object formBackingObject(HttpServletRequest request) throws
-	 * Exception { return tournamentDAO.retrieveCurrentTournaments(); }
-	 * 
-	 * 
-	 * protected ModelAndView onSubmit(Object command) throws ServletException {
-	 * //El ModelAndView funciona como un Map al cual le voy agregando objetos
-	 * con un String asociado. //La idea es que en el jsp de destino ya aparece
-	 * "declarado" magicamente, de forma que puedo // usarlo directamente con el
-	 * nombre que lo puse en el ModelAndView ModelAndView mav=null;
-	 * mav.addObject(new Object()); return new ModelAndView(getSuccessView(),
-	 * null); }
-	 */
 }

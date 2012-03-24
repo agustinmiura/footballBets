@@ -107,10 +107,8 @@ public class HelloController implements Controller{
 	}
 
 	private void verifyUserInDb(User user)throws Exception{
-		System.out.println("im user dao checking for user "+user);
 		boolean check=userDao.exist(user);		
 		if(!check){
-			System.out.println("im user dao persisting the user "+user);
 			userDao.addUser(user);
 		}		
 	}

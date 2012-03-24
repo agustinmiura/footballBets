@@ -38,47 +38,6 @@ public class BetDaoRamImpl implements IBetDao2 {
 	private static final String[] mailArray = new String[] { "ozzy1@gmail.com",
 			"foo@gmail.com" };
 
-	public static void main(String[] args) {
-
-		try {
-			IBetDao2 betDao = new BetDaoRamImpl();
-			User user = new User();
-			user.setMail("pepe@gmail.com");
-			user.setUserId("pepe@gmail.com");
-			TournamentDAO tDao = new TournamentRamImplDao();
-			Tournament tournament = tDao.byName("2010");
-
-			List<BetUnit> bUnitList = betDao.forUserInTournament(user,
-					tournament);
-			System.out.println(bUnitList.size());
-
-			int a = 10;
-
-			bUnitList = betDao.forUserInTournament(user, tournament);
-
-			BetUnit bUnit = new BetUnit();
-			bUnit.setId(new Long(0));
-			bUnit.setUser(user);
-			bUnit.setResult(Result.DRAW);
-
-			betDao.modify(new Long(0), bUnit);
-
-			System.out.println(bUnitList.size());
-
-			a = 10;
-			/*
-			 * Tournament tournament=TournamentFactory.create("2010");
-			 * 
-			 * List<BetUnit> betList=betDao.getFor(user, tournament);
-			 */
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
 	public BetDaoRamImpl() {
 
 		userMailData = new TreeMap<User, List<BetUnit>>();

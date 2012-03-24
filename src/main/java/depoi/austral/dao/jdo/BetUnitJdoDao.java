@@ -100,7 +100,6 @@ public class BetUnitJdoDao implements IBetDao2{
 	public void modify(Long id, BetUnit newParams) throws Exception {
 		BetUnitDataFactory betUnitDataFactory=new BetUnitDataFactory();
 		BetUnitData bUnitData=betUnitDataFactory.fromBetUnit(newParams);
-		System.out.println("in betUnit jdo dao the modify , the user "+newParams.getUser().getMail());
 		betUnitDataDao.modify(id,bUnitData);
 	}
 	

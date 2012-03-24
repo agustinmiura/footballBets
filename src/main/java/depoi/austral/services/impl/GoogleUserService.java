@@ -57,7 +57,6 @@ public class GoogleUserService implements IUserService {
 
 		User answer = null;
 		if (googleUser != null) {
-			System.out.println("GoogleUserAuth: " + googleUser);
 			answer = new User();
 			String eMail = googleUser.getEmail();
 			String userId = googleUser.getUserId();

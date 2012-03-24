@@ -55,18 +55,6 @@ public class Tournament implements Persistable,Comparable<Tournament>{
 	   return answer;
    }
    
-   public static void main(String[] args){
-	 try {
-		TournamentDAO tDao=new TournamentRamImplDao();
-		Tournament tournament=tDao.byName("2010");
-		List<Match> matchList=tournament.getAll();
-		
-	 
-	 } catch (Exception e) {
-		e.printStackTrace();
-	}
-   }
-   
     public Tournament() {
     	RandomService randomService=new RandomService();
     	id=randomService.getRandomLong(2000);
